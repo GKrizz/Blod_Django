@@ -1,0 +1,28 @@
+{%  load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>My Blogs</title>
+</head>
+<body>
+<header>
+    <h1><a href="/" >Django Blog</a></h1>
+</header>
+
+</body>
+<hr>
+{% for post in post %}
+<article>
+    <time>published : {{ post.publish_date }}</time>
+    <h2><a href=" ">{{ post.Title }}</a></h2>
+ <p> {{ post.Content|linebreaksbr }}</p>
+    <h2> {{ post.author }} </h2>
+     {% if post.image %}
+ <img src="{{post.image.url}}" alt="{{ post.title }}" width="210px" height="170px">
+      {% endif %}
+      
+
+</article>
+{% endfor %}
+<hr>
+</html>
